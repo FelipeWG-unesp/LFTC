@@ -7,10 +7,10 @@ interface NavEntry {
 }
 
 const NAV_ENTRIES: NavEntry[] = [
-  { label: 'Testador de Regex', active: true },
-  { label: 'Conversor JSON', comingSoon: true },
-  { label: 'Formatador de texto', comingSoon: true },
-  { label: 'Contador de citações', comingSoon: true },
+  { label: 'Testador de Regex', active: true }//,
+  //{ label: 'Conversor JSON', comingSoon: true },
+  //{ label: 'Formatador de texto', comingSoon: true },
+  //{ label: 'Contador de citações', comingSoon: true },
 ];
 
 export function Sidebar() {
