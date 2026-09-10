@@ -1,0 +1,41 @@
+.details {
+  margin-top: 36px;
+  border-top: 1px solid var(--line-700);
+  padding-top: 18px;
+}
+
+.details summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--muted-400);
+  user-select: none;
+}
+
+.details summary:hover {
+  color: var(--text-100);
+}
+
+.grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  font-size: 13px;
+}
+
+.grid div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line-700);
+  color: var(--muted-400);
+}
+
+.grid code {
+  color: var(--accent-gold);
+  background: var(--panel-700);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}

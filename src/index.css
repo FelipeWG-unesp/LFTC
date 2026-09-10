@@ -1,0 +1,33 @@
+:root {
+  --ink-900: #12141a;
+  --panel-800: #1a1d25;
+  --panel-700: #20242e;
+  --line-700: #2a2e38;
+  --text-100: #e8e9ed;
+  --muted-400: #8b90a0;
+  --muted-600: #5b6072;
+  --accent-pass: #4fcdac;
+  --accent-pass-bg: #173a33;
+  --accent-fail: #e15252;
+  --accent-fail-bg: #3a1c1c;
+  --accent-gold: #e8b84b;
+  --font-ui: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--ink-900);
+  color: var(--text-100);
+  font-family: var(--font-ui);
+}

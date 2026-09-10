@@ -1,0 +1,29 @@
+.flags {
+  display: flex;
+  gap: 4px;
+  /* alinha verticalmente com a caixa de expressão, que tem um rótulo acima */
+  margin-top: 26px;
+}
+
+.btn {
+  width: 38px;
+  height: 46px;
+  background: var(--panel-700);
+  border: 1px solid var(--line-700);
+  color: var(--muted-400);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.btn:hover {
+  border-color: var(--muted-600);
+}
+
+.btn.on {
+  background: var(--accent-pass-bg);
+  color: var(--accent-pass);
+  border-color: var(--accent-pass);
+}

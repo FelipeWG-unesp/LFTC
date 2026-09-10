@@ -1,0 +1,79 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  width: 70px;
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--muted-400);
+}
+
+.box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--line-700);
+  background: var(--panel-700);
+  overflow: hidden;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.box.pass {
+  background: var(--accent-pass-bg);
+  border-color: var(--accent-pass);
+}
+
+.box.fail {
+  background: var(--accent-fail-bg);
+  border-color: var(--accent-fail);
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-100);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 12px 14px;
+}
+
+.input::placeholder {
+  color: var(--muted-600);
+}
+
+.status {
+  width: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-600);
+}
+
+.box.pass .status {
+  color: var(--accent-pass);
+}
+
+.box.fail .status {
+  color: var(--accent-fail);
+}
+
+.remove {
+  background: none;
+  border: none;
+  color: var(--muted-600);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+.remove:hover {
+  color: var(--accent-fail);
+}

@@ -1,0 +1,42 @@
+.wrap {
+  margin-bottom: 14px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.head h2 {
+  font-size: 14px;
+  color: var(--muted-400);
+  font-weight: 500;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.add {
+  align-self: flex-start;
+  background: none;
+  border: 1px dashed var(--line-700);
+  color: var(--muted-400);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.add:hover {
+  border-color: var(--muted-400);
+  color: var(--text-100);
+}

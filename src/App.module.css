@@ -1,0 +1,32 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding: 40px 48px;
+  max-width: 860px;
+}
+
+.main h1 {
+  font-size: 26px;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  color: var(--muted-400);
+  font-size: 14px;
+  margin: 0 0 32px 0;
+}
+
+.exprRow {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.exprField {
+  flex: 1;
+}
