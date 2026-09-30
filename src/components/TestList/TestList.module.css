@@ -40,3 +40,7 @@
   border-color: var(--muted-400);
   color: var(--text-100);
 }
+
+.add:disabled {
+  display: none;
+}

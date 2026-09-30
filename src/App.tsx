@@ -18,6 +18,7 @@ export function App() {
     removeTest,
     error,
     statusFor,
+    MAX_TESTS,
   } = useRegexTester();
 
   return (
@@ -42,6 +43,7 @@ export function App() {
           onChange={updateTest}
           onRemove={removeTest}
           onAdd={addTest}
+          canAdd={tests.length < MAX_TESTS}
         />
 
         <Cheatsheet />

@@ -3,6 +3,7 @@ import type { MatchStatus, RegexFlags, TestCase } from '../types';
 import { compileRegex, testValue } from '../utils/regex';
 
 const INITIAL_FLAGS: RegexFlags = { g: false, i: false, m: false, s: false };
+const MAX_TESTS = 5;
 
 function createTest(value: string): TestCase {
   return { id: crypto.randomUUID(), value };
@@ -22,7 +23,10 @@ export function useRegexTester() {
   }
 
   function addTest(): void {
-    setTests((prev) => [...prev, createTest('')]);
+    setTests((prev) => {
+      if (prev.length >= MAX_TESTS) return prev;
+      return [...prev, createTest('')];
+    });
   }
 
   function updateTest(id: string, value: string): void {
@@ -49,5 +53,6 @@ export function useRegexTester() {
     removeTest,
     error,
     statusFor,
+    MAX_TESTS,
   };
 }

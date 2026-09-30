@@ -8,9 +8,10 @@ interface Props {
   onChange: (id: string, value: string) => void;
   onRemove: (id: string) => void;
   onAdd: () => void;
+  canAdd: boolean;
 }
 
-export function TestList({ tests, statusFor, onChange, onRemove, onAdd }: Props) {
+export function TestList({ tests, statusFor, onChange, onRemove, onAdd, canAdd }: Props) {
   return (
     <div className={styles.wrap}>
       <div className={styles.head}>
@@ -28,7 +29,13 @@ export function TestList({ tests, statusFor, onChange, onRemove, onAdd }: Props)
           />
         ))}
       </div>
-      <button className={styles.add} onClick={onAdd} type="button">
+      <button
+        className={styles.add}
+        onClick={onAdd}
+        type="button"
+        disabled={!canAdd}
+        title={canAdd ? 'Adicionar teste' : 'Limite de 5 textos de teste atingido'}
+      >
         + adicionar teste
       </button>
     </div>
