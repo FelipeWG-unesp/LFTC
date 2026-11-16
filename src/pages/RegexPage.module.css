@@ -1,0 +1,10 @@
+.exprRow {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.exprField {
+  flex: 1;
+}
