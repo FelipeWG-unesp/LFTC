@@ -1,39 +1,52 @@
-import { useEffect, useState } from 'react';
+import { Cheatsheet } from './components/Cheatsheet/Cheatsheet';
+import { ExpressionField } from './components/ExpressionField/ExpressionField';
+import { FlagToggles } from './components/FlagToggles/FlagToggles';
 import { Sidebar } from './components/Sidebar/Sidebar';
-import { GrammarPage } from './pages/GrammarPage';
-import { RegexPage } from './pages/RegexPage';
-import type { ToolId } from './types';
+import { TestList } from './components/TestList/TestList';
+import { useRegexTester } from './hooks/useRegexTester';
 import styles from './App.module.css';
 
-/** A ferramenta aberta fica no endereço (#regex, #grammar), então dá para favoritar/compartilhar. */
-function toolFromHash(): ToolId {
-  return window.location.hash === '#grammar' ? 'grammar' : 'regex';
-}
-
 export function App() {
-  const [tool, setTool] = useState<ToolId>(toolFromHash);
-
-  useEffect(() => {
-    window.location.hash = tool;
-  }, [tool]);
-
-  useEffect(() => {
-    const onHashChange = () => setTool(toolFromHash());
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
+  const {
+    pattern,
+    setPattern,
+    flags,
+    toggleFlag,
+    tests,
+    addTest,
+    updateTest,
+    removeTest,
+    error,
+    statusFor,
+    MAX_TESTS,
+  } = useRegexTester();
 
   return (
     <div className={styles.layout}>
-      <Sidebar active={tool} onSelect={setTool} />
+      <Sidebar />
       <main className={styles.main}>
-        {/* As duas páginas ficam montadas (só escondidas) para não perder o que foi digitado ao trocar de aba. */}
-        <section hidden={tool !== 'regex'}>
-          <RegexPage />
-        </section>
-        <section hidden={tool !== 'grammar'}>
-          <GrammarPage />
-        </section>
+        <h1>Testador de Regex</h1>
+        <p className={styles.subtitle}>
+          Digite uma expressão regular e veja, em tempo real, quais textos ela aceita.
+        </p>
+
+        <div className={styles.exprRow}>
+          <div className={styles.exprField}>
+            <ExpressionField pattern={pattern} error={error} onChange={setPattern} />
+          </div>
+          <FlagToggles flags={flags} onToggle={toggleFlag} />
+        </div>
+
+        <TestList
+          tests={tests}
+          statusFor={statusFor}
+          onChange={updateTest}
+          onRemove={removeTest}
+          onAdd={addTest}
+          canAdd={tests.length < MAX_TESTS}
+        />
+
+        <Cheatsheet />
       </main>
     </div>
   );
