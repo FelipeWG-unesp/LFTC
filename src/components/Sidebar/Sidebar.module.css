@@ -57,3 +57,21 @@
   color: var(--muted-600);
   line-height: 1.5;
 }
+
+/* itens da navegação agora são <button> */
+.navButton {
+  width: 100%;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.navButton:hover {
+  background: var(--panel-700);
+  color: var(--text-100);
+}

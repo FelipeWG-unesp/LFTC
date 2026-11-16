@@ -1,30 +1,38 @@
+import type { ToolId } from '../../types';
 import styles from './Sidebar.module.css';
 
 interface NavEntry {
+  id: ToolId;
   label: string;
-  active?: boolean;
-  comingSoon?: boolean;
 }
 
 const NAV_ENTRIES: NavEntry[] = [
-  { label: 'Testador de Regex', active: true }
+  { id: 'regex', label: 'Testador de Regex' },
+  { id: 'grammar', label: 'Gramática Regular' },
 ];
 
-export function Sidebar() {
+interface Props {
+  active: ToolId;
+  onSelect: (id: ToolId) => void;
+}
+
+export function Sidebar({ active, onSelect }: Props) {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.brand}>
-        LFTC <span>v0.2</span>
+        LFTC <span>v0.3</span>
       </div>
       <nav className={styles.nav}>
         {NAV_ENTRIES.map((entry) => (
-          <div
-            key={entry.label}
-            className={`${styles.navItem} ${entry.active ? styles.active : ''}`}
+          <button
+            key={entry.id}
+            type="button"
+            className={`${styles.navItem} ${styles.navButton} ${entry.id === active ? styles.active : ''}`}
+            aria-current={entry.id === active ? 'page' : undefined}
+            onClick={() => onSelect(entry.id)}
           >
             {entry.label}
-            {entry.comingSoon && <span className={styles.tag}>em breve</span>}
-          </div>
+          </button>
         ))}
       </nav>
       <p className={styles.note}>
